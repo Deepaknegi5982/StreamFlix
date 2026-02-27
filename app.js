@@ -15,26 +15,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
    
-    const languageSelect = document.getElementById("language");
-
-    function changeLanguage(lang) {
-        document.querySelectorAll("[data-key]").forEach(el => {
-            const key = el.getAttribute("data-key");
-            if (translations[lang][key]) {
-                el.textContent = translations[lang][key];
-            }
-        });
-    }
-
-    const savedLang = localStorage.getItem("lang") || "en";
-    languageSelect.value = savedLang;
-    changeLanguage(savedLang);
-
-    languageSelect.addEventListener("change", () => {
-        const lang = languageSelect.value;
-        localStorage.setItem("lang", lang);
-        changeLanguage(lang);
-    });
-
-});
-
